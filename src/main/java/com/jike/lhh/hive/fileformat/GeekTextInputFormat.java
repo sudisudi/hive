@@ -12,9 +12,6 @@ import java.util.regex.Pattern;
 
 /**
  * hive 自定义文本输入格式进行数据解密操作
- *
- * @author lianghuahuang
- * @date 2021/8/6
  **/
 public class GeekTextInputFormat implements
         InputFormat<LongWritable, Text>, JobConfigurable {
@@ -28,7 +25,6 @@ public class GeekTextInputFormat implements
 
         LineRecordReader reader;
         Text text;
-        //解密规则正则匹配：文件中出现任何的geek，geeeek，geeeeeeeeeeek等单词时，进行过滤，即删除该单词。gek需要保留。字母中连续的“e”最大长度为256个。
         static  final String DEC_PATTERN = "\\s{1}ge{2,256}k";
         static final Pattern pattern = Pattern.compile(DEC_PATTERN);
 
