@@ -9,7 +9,6 @@ on u.userid=tr.userid
 where m.movieid=2116
 group by u.age
 
-![image](https://user-images.githubusercontent.com/8264550/128607019-a8fb3fcf-cb4f-4615-9aec-d9ef1132aacc.png)
 
 ## 题目2：
 ### 中等：找出男性评分最高且评分次数超过50次的10部电影，展示电影名，平均影评分和评分次数
@@ -26,7 +25,7 @@ having count(tr.rate)>50
 order by avg_rate desc
 limit  10
 
-![image](https://user-images.githubusercontent.com/8264550/128607010-b2c15737-02ee-40ad-af2d-15276c7b52a7.png)
+
 
 ## 题目3
 ### 困难：找出影评次数最多的女士所给出最高分的10部电影的平均影评分，展示电影名和平均影评分（可使用多行SQL）
@@ -53,7 +52,6 @@ limit 10) tr2
 on tr2.movieid=m.movieid
 group by m.movieid,m.moviename 
 
-![image](https://user-images.githubusercontent.com/8264550/128607025-a1abd735-7bf9-4f6a-ae15-18ccd5698d5e.png)
 
 ## 附加作业：GeekFileFormat 
 ### 请优先完成前面三个作业，Hive的练习更多的是对于HQL的使用，对于完成的同学，可以试着写一个Hive的FileFormat：GeekFileFormat
