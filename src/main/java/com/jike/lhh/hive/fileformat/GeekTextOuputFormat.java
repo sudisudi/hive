@@ -18,8 +18,7 @@ import java.util.Properties;
 /**
  * hive自定义文本输出格式进行数据加密操作
  *
- * @author lianghuahuang
- * @date 2021/8/6
+
  **/
 public class GeekTextOuputFormat<K extends WritableComparable, V extends Writable>
         extends HiveIgnoreKeyTextOutputFormat<K, V> {
@@ -42,7 +41,6 @@ public class GeekTextOuputFormat<K extends WritableComparable, V extends Writabl
         public void write(Writable w) throws IOException {
             if (w instanceof Text) {
                 String input = ((Text) w).toString();
-                //处理加密操作，加密规则：文件输出时每随机2到256个单词，就插入一个gee...k，字母e的个数等于前面出现的非gee...k单词的个数。
                 String[] array = input.split("(?=\\s)");
                 int max = array.length>256?256:array.length;
                 int min = 2;
